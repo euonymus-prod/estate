@@ -138,7 +138,7 @@ export default function MainMenu(props) {
           <img
             className={classes.appBarImage}
             src={logoImage}
-            alt="GRANDstack logo"
+            alt="Estate Real logo"
           />
           <Typography
             component="h1"
@@ -147,7 +147,7 @@ export default function MainMenu(props) {
             noWrap
             className={classes.title}
           >
-            Welcome To GRANDstack App
+            Welcome To Estate Real
           </Typography>
         </Toolbar>
       </AppBar>
