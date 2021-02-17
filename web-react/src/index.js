@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './assets/styles/index.css'
-import App from './App'
+import Routes from './Routes'
 import registerServiceWorker from './registerServiceWorker'
 import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
 
@@ -12,7 +12,7 @@ const client = new ApolloClient({
 
 const Main = () => (
   <ApolloProvider client={client}>
-    <App />
+    <Routes />
   </ApolloProvider>
 )
 

@@ -5,7 +5,7 @@ import TableCell from '@material-ui/core/TableCell'
 import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import { useQuery, gql } from '@apollo/client'
-import Title from './Title'
+import Title from '../molecules/Title'
 
 const GET_RECENT_REVIEWS_QUERY = gql`
   {

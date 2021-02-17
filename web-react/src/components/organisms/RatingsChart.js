@@ -9,7 +9,7 @@ import {
   BarChart,
 } from 'recharts'
 import { useQuery, gql } from '@apollo/client'
-import Title from './Title'
+import Title from '../molecules/Title'
 
 const GET_DATA_QUERY = gql`
   {

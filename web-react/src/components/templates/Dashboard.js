@@ -4,9 +4,9 @@ import { Grid, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import clsx from 'clsx'
 
-import RatingsChart from './RatingsChart'
-import UserCount from './UserCount'
-import RecentReviews from './RecentReviews'
+import RatingsChart from '../organisms/RatingsChart'
+import UserCount from '../organisms/UserCount'
+import RecentReviews from '../organisms/RecentReviews'
 export default function Dashboard() {
   const theme = useTheme()
 
