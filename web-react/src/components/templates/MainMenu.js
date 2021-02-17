@@ -16,6 +16,7 @@ import {
   ChevronLeft as ChevronLeftIcon,
   Menu as MenuIcon,
 } from '@material-ui/icons'
+import logoImage from '../../assets/images/logo.png'
 import SideMenuList from '../organisms/SideMenuList'
 import Footer from '../molecules/Footer'
 
@@ -136,7 +137,7 @@ export default function MainMenu(props) {
           </IconButton>
           <img
             className={classes.appBarImage}
-            src="img/grandstack.png"
+            src={logoImage}
             alt="GRANDstack logo"
           />
           <Typography
