@@ -128,7 +128,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function GrandApp(props) {
+export default function MainMenu(props) {
   const classes = useStyles()
   const [open, setOpen] = React.useState(true)
   const handleDrawerOpen = () => {
