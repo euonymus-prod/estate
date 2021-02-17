@@ -1,12 +1,12 @@
 import React from 'react'
 
-import GrandAppTemplate from '../components/templates/GrandApp'
+import MainMenuTemplate from '../components/templates/MainMenu'
 import UserListTemplate from '../components/templates/UserList'
 
 export default function UserList() {
   return (
-    <GrandAppTemplate>
+    <MainMenuTemplate>
       <UserListTemplate />
-    </GrandAppTemplate>
+    </MainMenuTemplate>
   )
 }

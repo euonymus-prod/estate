@@ -1,12 +1,12 @@
 import React from 'react'
 
-import GrandAppTemplate from '../components/templates/GrandApp'
+import MainMenuTemplate from '../components/templates/MainMenu'
 import DashboardTemplate from '../components/templates/Dashboard'
 
 export default function Dashboard() {
   return (
-    <GrandAppTemplate>
+    <MainMenuTemplate>
       <DashboardTemplate />
-    </GrandAppTemplate>
+    </MainMenuTemplate>
   )
 }
