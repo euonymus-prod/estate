@@ -5,39 +5,19 @@ import { makeStyles } from '@material-ui/core/styles'
 import {
   CssBaseline,
   Drawer,
-  Box,
   AppBar,
   Toolbar,
-  List,
   Typography,
   Divider,
   IconButton,
   Container,
-  Link as MUILink,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
 } from '@material-ui/core'
-import { Link } from 'react-router-dom'
 import {
   ChevronLeft as ChevronLeftIcon,
   Menu as MenuIcon,
-  Dashboard as DashboardIcon,
-  People as PeopleIcon,
 } from '@material-ui/icons'
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <MUILink color="inherit" href="https://grandstack.io/">
-        Your GRANDstack App Name Here
-      </MUILink>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
+import SideMenuList from '../organisms/SideMenuList'
+import Footer from '../molecules/Footer'
 
 const drawerWidth = 240
 
@@ -118,10 +98,6 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
-  navLink: {
-    textDecoration: 'none',
-    color: 'inherit',
-  },
   appBarImage: {
     maxHeight: '75px',
     paddingRight: '20px',
@@ -187,41 +163,14 @@ export default function MainMenu(props) {
           </IconButton>
         </div>
         <Divider />
-        <List>
-          <Link to="/" className={classes.navLink}>
-            <ListItem button>
-              <ListItemIcon>
-                <DashboardIcon />
-              </ListItemIcon>
-              <ListItemText primary="Dashboard" />
-            </ListItem>
-          </Link>
-          <Link to="/users" className={classes.navLink}>
-            <ListItem button>
-              <ListItemIcon>
-                <PeopleIcon />
-              </ListItemIcon>
-              <ListItemText primary="Users" />
-            </ListItem>
-          </Link>
-          <Link to="/apartment-buildings" className={classes.navLink}>
-            <ListItem button>
-              <ListItemIcon>
-                <PeopleIcon />
-              </ListItemIcon>
-              <ListItemText primary="Apartment Buildings" />
-            </ListItem>
-          </Link>
-        </List>
+        <SideMenuList />
         <Divider />
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           {props.children}
-          <Box pt={4}>
-            <Copyright />
-          </Box>
+          <Footer />
         </Container>
       </main>
     </div>
