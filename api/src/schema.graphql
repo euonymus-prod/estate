@@ -1,3 +1,38 @@
+type ApartmentBuilding {
+  id: ID!
+  name: String
+  description: String
+  built_on: Date
+  built_on_accuracy: String
+  top_floor: Int
+  address: String
+  apartments: [Apartment] @relation(name: "IS_A_PART_OF", direction: IN)
+}
+
+type Apartment {
+  id: ID!
+  name: String
+  size: Float
+  mainly_facing_direction: String
+  constacts: ApartmentContract @relation(name: "IS_NEWEST_CONTRACT_OF", direction: IN)
+}
+
+type ApartmentContract {
+  id: ID!
+  dealer: String
+  start_on: Date
+  end_on: Date
+  currency: String
+  decrared_rental_fee: Int
+  management_fee: Int
+  common_service_fee: Int
+  free_rent_months: Int
+}
+
+
+
+
+
 type User {
   userId: ID!
   name: String
