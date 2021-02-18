@@ -1,0 +1,121 @@
+type ApartmentContract {
+  id: ID!
+  dealer: String
+  start_on: Date
+  end_on: Date
+  currency: String
+  decrared_rental_fee: Int
+  management_fee: Int
+  common_service_fee: Int
+  free_rent_months: Int
+  initial_fees: [HasInitialFee]
+  yearly_fees: [HasYearlyFee]
+  bi_yearly_fees: [HasBiYearlyFee]
+  extra_monthly_fees: [HasExtraMonthlyFee]
+  parking_fees: [HasParkingFee]
+  bicycle_parking_fees: [HasBicycleParkingFee]
+  moving_out_fees: [HasMovingOutFee]
+}
+
+type InitialFee {
+  fee_type: String
+  name: String
+  payment_unit: String
+  tax_included: Boolean
+}
+
+type HasInitialFee @relation(name: "REQUIRES_INITIAL_FEE") {
+  from: ApartmentContract
+  to: InitialFee
+  amount: String
+  represent: String
+}
+
+type YearlyFee {
+  fee_type: String
+  name: String
+  payment_unit: String
+  tax_included: Boolean
+  pay_also_initially: Boolean
+}
+
+type HasYearlyFee @relation(name: "REQUIRES_YEARLY_FEE") {
+  from: ApartmentContract
+  to: YearlyFee
+  amount: String
+  represent: String
+}
+
+type BiYearlyFee {
+  fee_type: String
+  name: String
+  payment_unit: String
+  tax_included: Boolean
+  pay_also_initially: Boolean
+}
+
+type HasBiYearlyFee @relation(name: "REQUIRES_BIYEARLY_FEE") {
+  from: ApartmentContract
+  to: BiYearlyFee
+  amount: String
+  represent: String
+}
+
+type ExtraMonthlyFee {
+  fee_type: String
+  name: String
+  payment_unit: String
+  tax_included: Boolean
+  pay_also_initially: Boolean
+}
+
+type HasExtraMonthlyFee @relation(name: "REQUIRES_MONTHLY_FEE") {
+  from: ApartmentContract
+  to: ExtraMonthlyFee
+  amount: String
+  represent: String
+}
+
+type ParkingFee {
+  fee_type: String
+  name: String
+  payment_unit: String
+  tax_included: Boolean
+  pay_also_initially: Boolean
+}
+
+type HasParkingFee @relation(name: "REQUIRES_PARKING_FEE") {
+  from: ApartmentContract
+  to: ParkingFee
+  amount: String
+  represent: String
+}
+
+type BicycleParkingFee {
+  fee_type: String
+  name: String
+  payment_unit: String
+  tax_included: Boolean
+  pay_also_initially: Boolean
+}
+
+type HasBicycleParkingFee @relation(name: "REQUIRES_BICYCLE_PARKING_FEE") {
+  from: ApartmentContract
+  to: BicycleParkingFee
+  amount: String
+  represent: String
+}
+
+type MovingOutFee {
+  fee_type: String
+  name: String
+  payment_unit: String
+  tax_included: Boolean
+}
+
+type HasMovingOutFee @relation(name: "REQUIRES_MOVING_OUT_FEE") {
+  from: ApartmentContract
+  to: MovingOutFee
+  amount: String
+  represent: String
+}

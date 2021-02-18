@@ -7,8 +7,26 @@ import path from 'path'
  * fallback to schema.graphql if GRAPHQL_SCHEMA environment variable is not set
  */
 
-export const typeDefs = fs
-  .readFileSync(
-    process.env.GRAPHQL_SCHEMA || path.join(__dirname, 'schema.graphql')
-  )
-  .toString('utf-8')
+// export const typeDefs = fs
+//   .readFileSync(
+//     process.env.GRAPHQL_SCHEMA || path.join(__dirname, 'schema.graphql')
+//   )
+//   .toString('utf-8')
+
+const readText = (filename) => {
+  return fs.readFileSync(path.join(__dirname, `schemas/${filename}`)).toString('utf-8')
+}
+
+const apartmentBuildingDef = readText('apartment-building.graphql')
+const apartmentDef = readText('apartment.graphql')
+const apartmentContractDef = readText('apartment-contract.graphql')
+
+const schemaDef = readText('schema.graphql')
+
+export const typeDefs = `
+${apartmentBuildingDef}
+${apartmentDef}
+${apartmentContractDef}
+
+${schemaDef}
+`
