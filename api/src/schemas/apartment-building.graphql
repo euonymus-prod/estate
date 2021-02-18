@@ -12,31 +12,6 @@ type ApartmentBuilding {
   railroad_stations: [HasRailroadStation]
 }
 
-type Year {
-  year: Int
-}
-
-type Prefecture {
-  pref_cd: Int
-  name: String
-}
-
-type RailroadStation {
-  station_cd: Int
-  station_g_cd: Int
-  name: String
-  line_cd: Int
-  pref_cd: Int
-  post: String
-  address: String
-  longitude: String
-  latitude: String
-  start_on: Date
-  end_on: Date
-  status: Int
-  sort: Int
-}
-
 type HasRailroadStation @relation(name: "IS_NEAR_FROM") {
   from: ApartmentBuilding
   to: RailroadStation

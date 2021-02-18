@@ -20,6 +20,9 @@ const readText = (filename) => {
 const apartmentBuildingDef = readText('apartment-building.graphql')
 const apartmentDef = readText('apartment.graphql')
 const apartmentContractDef = readText('apartment-contract.graphql')
+const railroadStationDef = readText('railroad-station.graphql')
+const yearDef = readText('year.graphql')
+const prefectureDef = readText('prefecture.graphql')
 
 const schemaDef = readText('schema.graphql')
 
@@ -27,6 +30,9 @@ export const typeDefs = `
 ${apartmentBuildingDef}
 ${apartmentDef}
 ${apartmentContractDef}
+${railroadStationDef}
+${yearDef}
+${prefectureDef}
 
 ${schemaDef}
 `

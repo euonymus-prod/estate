@@ -1,0 +1,48 @@
+type RailroadStation {
+  station_cd: Int
+  station_g_cd: Int
+  name: String
+  line_cd: Int
+  pref_cd: Int
+  post: String
+  address: String
+  longitude: String
+  latitude: String
+  start_on: Date
+  end_on: Date
+  status: Int
+  sort: Int
+  prefecture: Prefecture @relation(name: "IS_IN", direction: OUT)
+  line: RailroadLine @relation(name: "IS_ON_THE", direction: OUT)
+  previous: RailroadStation @relation(name: "NEXT_STATION", direction: IN)
+  next: RailroadStation @relation(name: "NEXT_STATION", direction: OUT)
+}
+
+type RailroadLine {
+  line_cd: Int
+  company_cd: Int
+  name: String
+  name_kana: String
+  name_full: String
+  line_color_code: String
+  line_color: String
+  longitude: String
+  latitude: String
+  zoom: Int
+  status: Int
+  sort: Int
+  operator: RailroadOperator @relation(name: "IS_OPERATED_BY", direction: OUT)
+}
+
+type RailroadOperator {
+  company_cd: Int
+  rr_cd: Int
+  name: String
+  name_kana: String
+  name_full: String
+  abbreviation: String
+  company_url: String
+  company_type: Int
+  status: Int
+  sort: Int
+}

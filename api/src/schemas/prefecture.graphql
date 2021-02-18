@@ -1,0 +1,4 @@
+type Prefecture {
+  pref_cd: Int
+  name: String
+}
