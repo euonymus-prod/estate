@@ -7,26 +7,35 @@ import TableRow from '@material-ui/core/TableRow'
 import { useQuery, gql } from '@apollo/client'
 import Title from '../molecules/Title'
 
-const GET_RECENT_REVIEWS_QUERY = gql`
+const GET_APARTMENT_BUILDINGS_QUERY = gql`
   {
-    Review(first: 10, orderBy: date_desc) {
-      user {
-        name
+    ApartmentBuilding(first: 10) {
+      id
+      name
+      railroad_stations {
+        RailroadStation {
+          name
+        }
       }
-      business {
+      apartments {
         name
+        layout {
+          room_layout
+        }
+        floor {
+          floor
+        }
       }
-      date {
+      built_on {
         formatted
       }
-      text
-      stars
+      top_floor
     }
   }
 `
 
 export default function ApartmentBuildings() {
-  const { loading, error, data } = useQuery(GET_RECENT_REVIEWS_QUERY)
+  const { loading, error, data } = useQuery(GET_APARTMENT_BUILDINGS_QUERY)
   if (error) return <p>Error</p>
   if (loading) return <p>Loading</p>
 
@@ -44,13 +53,15 @@ export default function ApartmentBuildings() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.Review.map((row) => (
+          {data.ApartmentBuilding.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.date.formatted}</TableCell>
-              <TableCell>{row.business.name}</TableCell>
-              <TableCell>{row.user.name}</TableCell>
-              <TableCell>{row.text}</TableCell>
-              <TableCell align="right">{row.stars}</TableCell>
+              <TableCell>{row.built_on.formatted}</TableCell>
+              <TableCell>{row.name}</TableCell>
+              <TableCell>
+                {row.railroad_stations[0].RailroadStation.name}
+              </TableCell>
+              <TableCell>{row.name}</TableCell>
+              <TableCell align="right">{row.top_floor}</TableCell>
             </TableRow>
           ))}
         </TableBody>
