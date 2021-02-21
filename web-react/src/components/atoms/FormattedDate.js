@@ -1,5 +1,4 @@
 export default function FormattedDate({ date, accuracy }) {
-  console.log(accuracy)
   if (accuracy == 'year') {
     return `${date.year}年`
   } else if (accuracy == 'month') {

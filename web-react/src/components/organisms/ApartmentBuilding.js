@@ -21,6 +21,9 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
     ApartmentBuilding(id: $id, first: 1) {
       id
       name
+      address
+      built_on_accuracy
+      top_floor
       railroad_stations {
         distance
         RailroadStation {
@@ -30,9 +33,11 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
           }
         }
       }
-      address
       apartments {
+        id
         name
+        size
+        mainly_facing_direction
         layout {
           room_layout
         }
@@ -46,8 +51,6 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
         month
         day
       }
-      built_on_accuracy
-      top_floor
     }
   }
 `
@@ -110,26 +113,28 @@ export default function ApartmentBuilding() {
             <TableHead>
               <TableRow>
                 <TableCell>Name</TableCell>
-                <TableCell>Built on</TableCell>
-                <TableCell>Station</TableCell>
-                <TableCell align="right">Floors</TableCell>
+                <TableCell>面積(土地面積)</TableCell>
+                <TableCell>間取り</TableCell>
+                <TableCell>階</TableCell>
+                <TableCell align="right">主要採光面</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow key={apartmentBuilding.id}>
-                <TableCell>
-                  <Link to={`/apartment-building/${apartmentBuilding.id}`}>
-                    {apartmentBuilding.name}
-                  </Link>
-                </TableCell>
-                <TableCell>{apartmentBuilding.built_on.formatted}</TableCell>
-                <TableCell>
-                  {apartmentBuilding.railroad_stations[0].RailroadStation.name}
-                </TableCell>
-                <TableCell align="right">
-                  {apartmentBuilding.top_floor}
-                </TableCell>
-              </TableRow>
+              {apartmentBuilding.apartments.map((row) => (
+                <TableRow key={row.id}>
+                  <TableCell>
+                    <Link to={`/apartment/${row.id}`}>{row.name}</Link>
+                  </TableCell>
+                  <TableCell>
+                    {row.size}m<sup>2</sup>
+                  </TableCell>
+                  <TableCell>{row.layout.room_layout}</TableCell>
+                  <TableCell>{row.floor.floor}階</TableCell>
+                  <TableCell align="right">
+                    {row.mainly_facing_direction}
+                  </TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </Card>
