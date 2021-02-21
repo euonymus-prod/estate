@@ -119,12 +119,11 @@ export default function ApartmentBuilding() {
                 <TableCell>面積(土地面積)</TableCell>
                 <TableCell>間取り</TableCell>
                 <TableCell>階</TableCell>
-                <TableCell>初期費用</TableCell>
-                <TableCell>年毎費用</TableCell>
-                <TableCell>2年毎費用</TableCell>
-                <TableCell>月毎費用</TableCell>
-                <TableCell>初期費用</TableCell>
-                <TableCell align="right">主要採光面</TableCell>
+                <TableCell>主要採光面</TableCell>
+                <TableCell align="right">実質家賃</TableCell>
+                <TableCell align="right">実質更新料</TableCell>
+                <TableCell align="right">初期費用</TableCell>
+                <TableCell align="right">年毎費用</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -138,13 +137,11 @@ export default function ApartmentBuilding() {
                   </TableCell>
                   <TableCell>{row.layout.room_layout}</TableCell>
                   <TableCell>{row.floor.floor}階</TableCell>
-                  <TableCell>{row.contract.currency}</TableCell>
-                  <TableCell>{row.contract.currency}</TableCell>
-                  <TableCell>{row.contract.currency}</TableCell>
-                  <TableCell>{row.contract.currency}</TableCell>
-                  <TableCell align="right">
-                    {row.mainly_facing_direction}
-                  </TableCell>
+                  <TableCell>{row.mainly_facing_direction}</TableCell>
+                  <TableCell align="right">{row.contract.currency}</TableCell>
+                  <TableCell align="right">{row.contract.currency}</TableCell>
+                  <TableCell align="right">{row.contract.currency}</TableCell>
+                  <TableCell align="right">{row.contract.currency}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
