@@ -1,5 +1,6 @@
 type Apartment {
-  id: ID!
+  _id: ID!
+  id: Int
   name: String
   size: Float
   mainly_facing_direction: String

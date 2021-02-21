@@ -1,5 +1,6 @@
 type ApartmentContract {
-  id: ID!
+  _id: ID!
+  id: Int
   dealer: String
   start_on: Date
   end_on: Date

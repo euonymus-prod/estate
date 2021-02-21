@@ -1,5 +1,6 @@
 type ApartmentBuilding {
-  id: ID!
+  _id: ID!
+  id: Int
   name: String
   description: String
   built_on: Date

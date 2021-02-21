@@ -23,8 +23,9 @@ const apartmentContractDef = readText('apartment-contract.graphql')
 const railroadStationDef = readText('railroad-station.graphql')
 const yearDef = readText('year.graphql')
 const prefectureDef = readText('prefecture.graphql')
-
 const schemaDef = readText('schema.graphql')
+
+const sampleDef = readText('sample.graphql')
 
 export const typeDefs = `
 ${apartmentBuildingDef}
@@ -34,5 +35,6 @@ ${railroadStationDef}
 ${yearDef}
 ${prefectureDef}
 
+${sampleDef}
 ${schemaDef}
 `
