@@ -1,10 +1,10 @@
 import RelatedFeeSumByType from './RelatedFeeSumByType'
 
-export default function YearlyFee({ contract, forPrint }) {
+export default function BiYearlyFee({ contract, forPrint }) {
   let ret = RelatedFeeSumByType({
     contract,
-    feeType: 'yearly_fees',
-    feeObject: 'YearlyFee',
+    feeType: 'bi_yearly_fees',
+    feeObject: 'BiYearlyFee',
   })
   if (forPrint) {
     ret = ret.toLocaleString()

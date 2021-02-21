@@ -8,6 +8,7 @@ import DistanceToRailroadStation from '../atoms/DistanceToRailroadStation'
 import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
 import YearlyFee from '../atoms/YearlyFee'
+import BiYearlyFee from '../atoms/BiYearlyFee'
 
 import { Grid } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
@@ -53,6 +54,14 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
           yearly_fees {
             amount
             YearlyFee {
+              payment_unit
+              tax_included
+              name
+            }
+          }
+          bi_yearly_fees {
+            amount
+            BiYearlyFee {
               payment_unit
               tax_included
               name
@@ -150,10 +159,13 @@ export default function ApartmentBuilding() {
                   <TableCell>{row.floor.floor}階</TableCell>
                   <TableCell>{row.mainly_facing_direction}</TableCell>
                   <TableCell align="right">{row.contract.currency}</TableCell>
-                  <TableCell align="right">{row.contract.currency}</TableCell>
+                  <TableCell align="right">
+                    <BiYearlyFee contract={row.contract} forPrint={true} />
+                    {row.contract.currency}
+                  </TableCell>
                   <TableCell align="right">{row.contract.currency}</TableCell>
                   <TableCell align="right">
-                    <YearlyFee contract={row.contract} />
+                    <YearlyFee contract={row.contract} forPrint={true} />
                     {row.contract.currency}
                   </TableCell>
                 </TableRow>
