@@ -5,8 +5,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useQuery, gql } from '@apollo/client'
 import Card from '../atoms/Card'
 import DistanceToRailroadStation from '../atoms/DistanceToRailroadStation'
-import FormattedDate from '../atoms/FormattedDate'
-import ElapsedYears from '../atoms/ElapsedYears'
+import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
 
 import { Grid } from '@material-ui/core'
@@ -95,11 +94,10 @@ export default function ApartmentBuilding() {
                 </TableCell>
                 <TableCell>{apartmentBuilding.address}</TableCell>
                 <TableCell>
-                  <FormattedDate
+                  <BuiltOn
                     date={apartmentBuilding.built_on}
                     accuracy={apartmentBuilding.built_on_accuracy}
                   />
-                  ( 築<ElapsedYears date={apartmentBuilding.built_on} />年 )
                 </TableCell>
                 <TableCell align="right">
                   {apartmentBuilding.top_floor}階建
