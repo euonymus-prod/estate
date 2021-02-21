@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function MainMenu() {
+export default function SiteFrame() {
   const classes = useStyles()
   const [open, setOpen] = React.useState(true)
   const handleDrawerOpen = () => {

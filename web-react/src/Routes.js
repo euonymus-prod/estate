@@ -19,7 +19,7 @@ export default function Routes() {
         />
         <Route
           exact
-          path="/apartment-building/:apartment_building_id"
+          path="/apartment-building/:apartmentBuildingId"
           component={ApartmentBuilding}
         />
         {/* 参考 */}
