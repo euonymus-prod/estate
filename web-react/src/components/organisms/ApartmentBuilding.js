@@ -7,6 +7,7 @@ import Card from '../atoms/Card'
 import DistanceToRailroadStation from '../atoms/DistanceToRailroadStation'
 import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
+import MonthlyFee from '../atoms/MonthlyFee'
 import YearlyFee from '../atoms/YearlyFee'
 import BiYearlyFee from '../atoms/BiYearlyFee'
 
@@ -51,6 +52,14 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
           management_fee
           common_service_fee
           free_rent_months
+          extra_monthly_fees {
+            amount
+            ExtraMonthlyFee {
+              payment_unit
+              tax_included
+              name
+            }
+          }
           yearly_fees {
             amount
             YearlyFee {
@@ -158,7 +167,10 @@ export default function ApartmentBuilding() {
                   <TableCell>{row.layout.room_layout}</TableCell>
                   <TableCell>{row.floor.floor}階</TableCell>
                   <TableCell>{row.mainly_facing_direction}</TableCell>
-                  <TableCell align="right">{row.contract.currency}</TableCell>
+                  <TableCell align="right">
+                    <MonthlyFee contract={row.contract} forPrint={true} />
+                    {row.contract.currency}
+                  </TableCell>
                   <TableCell align="right">
                     <BiYearlyFee contract={row.contract} forPrint={true} />
                     {row.contract.currency}
