@@ -7,6 +7,7 @@ import Card from '../atoms/Card'
 import DistanceToRailroadStation from '../atoms/DistanceToRailroadStation'
 import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
+import YearlyFee from '../atoms/YearlyFee'
 
 import { Grid } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
@@ -45,6 +46,18 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
         }
         contract {
           currency
+          decrared_rental_fee
+          management_fee
+          common_service_fee
+          free_rent_months
+          yearly_fees {
+            amount
+            YearlyFee {
+              payment_unit
+              tax_included
+              name
+            }
+          }
         }
       }
       built_on {
@@ -139,7 +152,10 @@ export default function ApartmentBuilding() {
                   <TableCell align="right">{row.contract.currency}</TableCell>
                   <TableCell align="right">{row.contract.currency}</TableCell>
                   <TableCell align="right">{row.contract.currency}</TableCell>
-                  <TableCell align="right">{row.contract.currency}</TableCell>
+                  <TableCell align="right">
+                    <YearlyFee contract={row.contract} />
+                    {row.contract.currency}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
