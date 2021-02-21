@@ -5,7 +5,7 @@ type Apartment {
   size: Float
   mainly_facing_direction: String
   building: ApartmentBuilding @relation(name: "IS_A_PART_OF", direction: OUT)
-  constacts: ApartmentContract @relation(name: "IS_NEWEST_CONTRACT_OF", direction: IN)
+  contract: ApartmentContract @relation(name: "IS_NEWEST_CONTRACT_OF", direction: IN)
   layout: RoomLayout @relation(name: "IS_ARRANGED", direction: OUT)
   floor: FloorOfRoom @relation(name: "IS_ON", direction: OUT)
 }

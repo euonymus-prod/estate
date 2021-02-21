@@ -44,6 +44,9 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
         floor {
           floor
         }
+        contract {
+          currency
+        }
       }
       built_on {
         formatted
@@ -116,6 +119,11 @@ export default function ApartmentBuilding() {
                 <TableCell>面積(土地面積)</TableCell>
                 <TableCell>間取り</TableCell>
                 <TableCell>階</TableCell>
+                <TableCell>初期費用</TableCell>
+                <TableCell>年毎費用</TableCell>
+                <TableCell>2年毎費用</TableCell>
+                <TableCell>月毎費用</TableCell>
+                <TableCell>初期費用</TableCell>
                 <TableCell align="right">主要採光面</TableCell>
               </TableRow>
             </TableHead>
@@ -130,6 +138,10 @@ export default function ApartmentBuilding() {
                   </TableCell>
                   <TableCell>{row.layout.room_layout}</TableCell>
                   <TableCell>{row.floor.floor}階</TableCell>
+                  <TableCell>{row.contract.currency}</TableCell>
+                  <TableCell>{row.contract.currency}</TableCell>
+                  <TableCell>{row.contract.currency}</TableCell>
+                  <TableCell>{row.contract.currency}</TableCell>
                   <TableCell align="right">
                     {row.mainly_facing_direction}
                   </TableCell>
