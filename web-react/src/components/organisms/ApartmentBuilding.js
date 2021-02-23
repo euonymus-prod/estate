@@ -9,6 +9,7 @@ import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
 import MonthlyFee from '../atoms/MonthlyFee'
 import InitialFee from '../atoms/InitialFee'
+import InitialPayment from '../atoms/InitialPayment'
 import YearlyFee from '../atoms/YearlyFee'
 import BiYearlyFee from '../atoms/BiYearlyFee'
 
@@ -164,6 +165,7 @@ export default function ApartmentBuilding() {
                 <TableCell align="right">実質家賃</TableCell>
                 <TableCell align="right">実質更新料</TableCell>
                 <TableCell align="right">初期費用</TableCell>
+                <TableCell align="right">初期支払額</TableCell>
                 <TableCell align="right">年毎費用</TableCell>
               </TableRow>
             </TableHead>
@@ -189,6 +191,10 @@ export default function ApartmentBuilding() {
                   </TableCell>
                   <TableCell align="right">
                     <InitialFee contract={row.contract} forPrint={true} />
+                    {row.contract.currency}
+                  </TableCell>
+                  <TableCell align="right">
+                    <InitialPayment contract={row.contract} forPrint={true} />
                     {row.contract.currency}
                   </TableCell>
                   <TableCell align="right">
