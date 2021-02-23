@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import MonthlyFee from '../atoms/MonthlyFee'
@@ -44,4 +45,8 @@ export default function RowApartment({ apartment }) {
       </TableCell>
     </TableRow>
   )
+}
+
+RowApartment.propTypes = {
+  apartment: PropTypes.object,
 }

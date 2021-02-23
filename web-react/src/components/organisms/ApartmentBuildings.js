@@ -1,7 +1,5 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
-
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
@@ -9,15 +7,21 @@ import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 import { useQuery, gql } from '@apollo/client'
 import Title from '../molecules/Title'
+import RowApartmentBuilding from '../molecules/RowApartmentBuilding'
 
 const GET_APARTMENT_BUILDINGS_QUERY = gql`
   {
     ApartmentBuilding(first: 10) {
       id
       name
+      address
       railroad_stations {
+        distance
         RailroadStation {
           name
+          line {
+            name
+          }
         }
       }
       apartments {
@@ -31,6 +35,9 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
       }
       built_on {
         formatted
+        year
+        month
+        day
       }
       top_floor
     }
@@ -48,24 +55,20 @@ export default function ApartmentBuildings() {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Built on</TableCell>
-            <TableCell>Station</TableCell>
-            <TableCell align="right">Floors</TableCell>
+            <TableCell>建物名</TableCell>
+            <TableCell>最寄駅</TableCell>
+            <TableCell>所在地</TableCell>
+            <TableCell>築年数</TableCell>
+            <TableCell align="right">建物階数</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {data.ApartmentBuilding.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell>
-                <Link to={`/apartment-building/${row.id}`}>{row.name}</Link>
-              </TableCell>
-              <TableCell>{row.built_on.formatted}</TableCell>
-              <TableCell>
-                {row.railroad_stations[0].RailroadStation.name}
-              </TableCell>
-              <TableCell align="right">{row.top_floor}</TableCell>
-            </TableRow>
+            <RowApartmentBuilding
+              key={row.id}
+              apartmentBuilding={row}
+              withName={true}
+            />
           ))}
         </TableBody>
       </Table>

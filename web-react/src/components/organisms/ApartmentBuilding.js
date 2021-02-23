@@ -4,10 +4,10 @@ import { useParams } from 'react-router-dom'
 
 import { useQuery, gql } from '@apollo/client'
 import Card from '../atoms/Card'
-import DistanceToRailroadStation from '../atoms/DistanceToRailroadStation'
-import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
+import RowApartmentBuilding from '../molecules/RowApartmentBuilding'
 import RowApartment from '../molecules/RowApartment'
+import HeadApartment from '../molecules/HeadApartment'
 
 import { Grid } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
@@ -123,26 +123,7 @@ export default function ApartmentBuilding() {
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow key={apartmentBuilding.id}>
-                <TableCell>
-                  {apartmentBuilding.railroad_stations.map((row, id) => (
-                    <React.Fragment key={id}>
-                      <DistanceToRailroadStation railroadStation={row} />
-                      <br />
-                    </React.Fragment>
-                  ))}
-                </TableCell>
-                <TableCell>{apartmentBuilding.address}</TableCell>
-                <TableCell>
-                  <BuiltOn
-                    date={apartmentBuilding.built_on}
-                    accuracy={apartmentBuilding.built_on_accuracy}
-                  />
-                </TableCell>
-                <TableCell align="right">
-                  {apartmentBuilding.top_floor}階建
-                </TableCell>
-              </TableRow>
+              <RowApartmentBuilding apartmentBuilding={apartmentBuilding} />
             </TableBody>
           </Table>
         </Card>
@@ -151,20 +132,7 @@ export default function ApartmentBuilding() {
         <Card>
           <Title>部屋一覧</Title>
           <Table size="small">
-            <TableHead>
-              <TableRow>
-                <TableCell>Name</TableCell>
-                <TableCell>面積(土地面積)</TableCell>
-                <TableCell>間取り</TableCell>
-                <TableCell>階</TableCell>
-                <TableCell>主要採光面</TableCell>
-                <TableCell align="right">実質家賃</TableCell>
-                <TableCell align="right">実質更新料</TableCell>
-                <TableCell align="right">初期費用</TableCell>
-                <TableCell align="right">初期支払額</TableCell>
-                <TableCell align="right">年毎費用</TableCell>
-              </TableRow>
-            </TableHead>
+            <HeadApartment />
             <TableBody>
               {apartmentBuilding.apartments.map((row) => (
                 <RowApartment key={row.id} apartment={row} />
