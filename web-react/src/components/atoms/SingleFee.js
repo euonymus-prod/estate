@@ -18,7 +18,7 @@ export default function SingleFee({
   } else {
     return false
   }
-  if (feeObject.tax_included) {
+  if (!feeObject.tax_included) {
     tmp = tmp * (1 + TAX_RATE)
   }
   return Math.floor(tmp, 0)
