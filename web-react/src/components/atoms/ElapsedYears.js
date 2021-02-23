@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import moment from 'moment'
 export default function ElapsedYears({ date }) {
   var startDate = moment()
@@ -5,4 +6,8 @@ export default function ElapsedYears({ date }) {
     .month(date.month - 1)
     .date(date.day)
   return moment().diff(startDate, 'years')
+}
+
+ElapsedYears.propTypes = {
+  date: PropTypes.object,
 }

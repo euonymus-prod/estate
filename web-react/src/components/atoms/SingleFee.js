@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types'
 const TAX_RATE = 0.1
+
 export default function SingleFee({
   decrared_rental_fee,
   management_fee,
@@ -20,4 +22,12 @@ export default function SingleFee({
     tmp = tmp * (1 + TAX_RATE)
   }
   return Math.floor(tmp, 0)
+}
+
+SingleFee.propTypes = {
+  decrared_rental_fee: PropTypes.number,
+  management_fee: PropTypes.number,
+  common_service_fee: PropTypes.number,
+  amount: PropTypes.number,
+  feeObject: PropTypes.object,
 }

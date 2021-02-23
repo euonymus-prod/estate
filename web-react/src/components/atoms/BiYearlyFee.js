@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import RelatedFeeSumByType from './RelatedFeeSumByType'
 
 export default function BiYearlyFee({ contract, forPrint }) {
@@ -10,4 +11,9 @@ export default function BiYearlyFee({ contract, forPrint }) {
     ret = ret.toLocaleString()
   }
   return ret
+}
+
+BiYearlyFee.propTypes = {
+  contract: PropTypes.object,
+  forPrint: PropTypes.bool,
 }

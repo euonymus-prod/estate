@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { makeStyles } from '@material-ui/core/styles'
 import { CssBaseline, Container } from '@material-ui/core'
@@ -40,4 +41,8 @@ export default function MainMenu(props) {
       </main>
     </div>
   )
+}
+
+MainMenu.propTypes = {
+  children: PropTypes.node,
 }

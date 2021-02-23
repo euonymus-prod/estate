@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import RelatedFeeSumByType from './RelatedFeeSumByType'
 
 export default function MonthlyFee({ contract, forPrint }) {
@@ -16,4 +17,9 @@ export default function MonthlyFee({ contract, forPrint }) {
   }
 
   return ret
+}
+
+MonthlyFee.propTypes = {
+  contract: PropTypes.object,
+  forPrint: PropTypes.bool,
 }

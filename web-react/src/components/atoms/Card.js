@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { useTheme } from '@material-ui/core/styles'
 import { Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
@@ -23,4 +24,9 @@ export default function Card(props) {
   const decidedClasses = props.isFixedHeight ? fixedHeightPaper : classes.paper
 
   return <Paper className={decidedClasses}>{props.children}</Paper>
+}
+
+Card.propTypes = {
+  children: PropTypes.node,
+  isFixedHeight: PropTypes.bool,
 }

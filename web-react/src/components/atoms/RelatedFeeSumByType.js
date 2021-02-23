@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import SingleFee from './SingleFee'
 
 export default function RelatedFeeSumByType({ contract, feeType, feeObject }) {
@@ -12,4 +13,10 @@ export default function RelatedFeeSumByType({ contract, feeType, feeObject }) {
     })
   })
   return ret
+}
+
+RelatedFeeSumByType.propTypes = {
+  contract: PropTypes.object,
+  feeType: PropTypes.string,
+  feeObject: PropTypes.string,
 }
