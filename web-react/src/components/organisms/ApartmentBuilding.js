@@ -8,6 +8,7 @@ import DistanceToRailroadStation from '../atoms/DistanceToRailroadStation'
 import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
 import MonthlyFee from '../atoms/MonthlyFee'
+import InitialFee from '../atoms/InitialFee'
 import YearlyFee from '../atoms/YearlyFee'
 import BiYearlyFee from '../atoms/BiYearlyFee'
 
@@ -52,9 +53,9 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
           management_fee
           common_service_fee
           free_rent_months
-          extra_monthly_fees {
+          initial_fees {
             amount
-            ExtraMonthlyFee {
+            InitialFee {
               payment_unit
               tax_included
               name
@@ -65,6 +66,7 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
             YearlyFee {
               payment_unit
               tax_included
+              pay_also_initially
               name
             }
           }
@@ -73,6 +75,16 @@ const GET_APARTMENT_BUILDINGS_QUERY = gql`
             BiYearlyFee {
               payment_unit
               tax_included
+              pay_also_initially
+              name
+            }
+          }
+          extra_monthly_fees {
+            amount
+            ExtraMonthlyFee {
+              payment_unit
+              tax_included
+              pay_also_initially
               name
             }
           }
@@ -175,7 +187,10 @@ export default function ApartmentBuilding() {
                     <BiYearlyFee contract={row.contract} forPrint={true} />
                     {row.contract.currency}
                   </TableCell>
-                  <TableCell align="right">{row.contract.currency}</TableCell>
+                  <TableCell align="right">
+                    <InitialFee contract={row.contract} forPrint={true} />
+                    {row.contract.currency}
+                  </TableCell>
                   <TableCell align="right">
                     <YearlyFee contract={row.contract} forPrint={true} />
                     {row.contract.currency}
