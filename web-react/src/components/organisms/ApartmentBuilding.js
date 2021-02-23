@@ -1,17 +1,13 @@
 import React from 'react'
 
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import { useQuery, gql } from '@apollo/client'
 import Card from '../atoms/Card'
 import DistanceToRailroadStation from '../atoms/DistanceToRailroadStation'
 import BuiltOn from '../molecules/BuiltOn'
 import Title from '../molecules/Title'
-import MonthlyFee from '../atoms/MonthlyFee'
-import InitialFee from '../atoms/InitialFee'
-import InitialPayment from '../atoms/InitialPayment'
-import YearlyFee from '../atoms/YearlyFee'
-import BiYearlyFee from '../atoms/BiYearlyFee'
+import RowApartment from '../molecules/RowApartment'
 
 import { Grid } from '@material-ui/core'
 import Table from '@material-ui/core/Table'
@@ -171,37 +167,7 @@ export default function ApartmentBuilding() {
             </TableHead>
             <TableBody>
               {apartmentBuilding.apartments.map((row) => (
-                <TableRow key={row.id}>
-                  <TableCell>
-                    <Link to={`/apartment/${row.id}`}>{row.name}</Link>
-                  </TableCell>
-                  <TableCell>
-                    {row.size}m<sup>2</sup>
-                  </TableCell>
-                  <TableCell>{row.layout.room_layout}</TableCell>
-                  <TableCell>{row.floor.floor}階</TableCell>
-                  <TableCell>{row.mainly_facing_direction}</TableCell>
-                  <TableCell align="right">
-                    <MonthlyFee contract={row.contract} forPrint={true} />
-                    {row.contract.currency}
-                  </TableCell>
-                  <TableCell align="right">
-                    <BiYearlyFee contract={row.contract} forPrint={true} />
-                    {row.contract.currency}
-                  </TableCell>
-                  <TableCell align="right">
-                    <InitialFee contract={row.contract} forPrint={true} />
-                    {row.contract.currency}
-                  </TableCell>
-                  <TableCell align="right">
-                    <InitialPayment contract={row.contract} forPrint={true} />
-                    {row.contract.currency}
-                  </TableCell>
-                  <TableCell align="right">
-                    <YearlyFee contract={row.contract} forPrint={true} />
-                    {row.contract.currency}
-                  </TableCell>
-                </TableRow>
+                <RowApartment key={row.id} apartment={row} />
               ))}
             </TableBody>
           </Table>
