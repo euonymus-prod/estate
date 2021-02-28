@@ -9,6 +9,7 @@ type ApartmentContract {
   management_fee: Int
   common_service_fee: Int
   free_rent_months: Int
+  apartment: Apartment @relation(name: "IS_CONTRACT_HISTORY_OF", direction: OUT)
   initial_fees: [HasInitialFee]
   yearly_fees: [HasYearlyFee]
   bi_yearly_fees: [HasBiYearlyFee]
