@@ -24,6 +24,11 @@ export default function SideMenuList() {
       icon: <PeopleIcon />,
       caption: 'Apartment Buildings',
     },
+    {
+      link: '/search-conditions',
+      icon: <PeopleIcon />,
+      caption: 'Search Conditions',
+    },
   ]
 
   return (
