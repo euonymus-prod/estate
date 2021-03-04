@@ -3,6 +3,7 @@ import React from 'react'
 import Title from '../molecules/Title'
 import SelectMonthlyFeeRange from '../molecules/SelectMonthlyFeeRange'
 import SelectAreaSizeRange from '../molecules/SelectAreaSizeRange'
+import LayoutCheckboxes from '../molecules/LayoutCheckboxes'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
@@ -76,7 +77,9 @@ export default function ConditionForm() {
           </TableRow>
           <TableRow>
             <TableCell className={classes.formTableCategory}>間取り</TableCell>
-            <TableCell>hoge</TableCell>
+            <TableCell>
+              <LayoutCheckboxes />
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell className={classes.formTableCategory}>
