@@ -112,3 +112,86 @@ export const MENU_ITEM_MONTHLY_FEE = [
     value: 100,
   },
 ]
+
+export const MENU_ITEM_AREA_SIZE = [
+  {
+    text: '10m2',
+    value: 10,
+  },
+  {
+    text: '15m2',
+    value: 15,
+  },
+  {
+    text: '20m2',
+    value: 20,
+  },
+  {
+    text: '25m2',
+    value: 25,
+  },
+  {
+    text: '30m2',
+    value: 30,
+  },
+  {
+    text: '35m2',
+    value: 35,
+  },
+  {
+    text: '40m2',
+    value: 40,
+  },
+  {
+    text: '45m2',
+    value: 45,
+  },
+  {
+    text: '50m2',
+    value: 50,
+  },
+  {
+    text: '60m2',
+    value: 60,
+  },
+  {
+    text: '70m2',
+    value: 70,
+  },
+  {
+    text: '80m2',
+    value: 80,
+  },
+  {
+    text: '90m2',
+    value: 90,
+  },
+  {
+    text: '100m2',
+    value: 100,
+  },
+  {
+    text: '110m2',
+    value: 110,
+  },
+  {
+    text: '120m2',
+    value: 120,
+  },
+  {
+    text: '130m2',
+    value: 130,
+  },
+  {
+    text: '140m2',
+    value: 140,
+  },
+  {
+    text: '150m2',
+    value: 150,
+  },
+  {
+    text: '200m2',
+    value: 200,
+  },
+]

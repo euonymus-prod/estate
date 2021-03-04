@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import SelectMinMonthlyFee from '../atoms/SelectMinMonthlyFee'
-import SelectMaxMonthlyFee from '../atoms/SelectMaxMonthlyFee'
+import SelectMinAreaSize from '../atoms/SelectMinAreaSize'
+import SelectMaxAreaSize from '../atoms/SelectMaxAreaSize'
 
 import { makeStyles } from '@material-ui/core/styles'
 import FormHelperText from '@material-ui/core/FormHelperText'
@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-export default function SelectMonthlyFeeRange({
+export default function SelectAreaSizeRange({
   minData,
   onMinChangeHandle,
   maxData,
@@ -22,23 +22,23 @@ export default function SelectMonthlyFeeRange({
   const classes = useStyles()
 
   let hasError = false
-  if (parseFloat(minData) > parseFloat(maxData)) {
+  if (parseInt(minData) > parseInt(maxData)) {
     hasError = true
   }
   return (
     <React.Fragment>
-      <SelectMinMonthlyFee data={minData} onChangeHandle={onMinChangeHandle} />
+      <SelectMinAreaSize data={minData} onChangeHandle={onMinChangeHandle} />
       ~
-      <SelectMaxMonthlyFee data={maxData} onChangeHandle={onMaxChangeHandle} />
+      <SelectMaxAreaSize data={maxData} onChangeHandle={onMaxChangeHandle} />
       {hasError && (
         <FormHelperText className={classes.formHelper}>
-          上限額は下限額より大きい数値を設定してください。
+          専有面積上限は専有面積下限より大きい数値を設定してください。
         </FormHelperText>
       )}
     </React.Fragment>
   )
 }
-SelectMonthlyFeeRange.propTypes = {
+SelectAreaSizeRange.propTypes = {
   minData: PropTypes.string,
   onMinChangeHandle: PropTypes.func,
   maxData: PropTypes.string,

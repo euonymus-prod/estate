@@ -2,6 +2,7 @@ import React from 'react'
 
 import Title from '../molecules/Title'
 import SelectMonthlyFeeRange from '../molecules/SelectMonthlyFeeRange'
+import SelectAreaSizeRange from '../molecules/SelectAreaSizeRange'
 
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
@@ -26,10 +27,17 @@ export default function ConditionForm() {
   const onChangeMinMonthlyFee = (value) => {
     setMinMonthlyFee(value)
   }
-
   const [maxMonthlyFee, setMaxMonthlyFee] = React.useState('')
   const onChangeMaxMonthlyFee = (value) => {
     setMaxMonthlyFee(value)
+  }
+  const [minAreaSize, setMinAreaSize] = React.useState('')
+  const onChangeMinAreaSize = (value) => {
+    setMinAreaSize(value)
+  }
+  const [maxAreaSize, setMaxAreaSize] = React.useState('')
+  const onChangeMaxAreaSize = (value) => {
+    setMaxAreaSize(value)
   }
   return (
     <React.Fragment>
@@ -57,7 +65,14 @@ export default function ConditionForm() {
             <TableCell className={classes.formTableCategory}>
               専有面積
             </TableCell>
-            <TableCell>hoge</TableCell>
+            <TableCell>
+              <SelectAreaSizeRange
+                minData={minAreaSize}
+                onMinChangeHandle={onChangeMinAreaSize}
+                maxData={maxAreaSize}
+                onMaxChangeHandle={onChangeMaxAreaSize}
+              />
+            </TableCell>
           </TableRow>
           <TableRow>
             <TableCell className={classes.formTableCategory}>間取り</TableCell>
