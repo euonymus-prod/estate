@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import SelectForm from '../atoms/SelectForm'
 import { MENU_ITEM_MONTHLY_FEE } from '../../constants/menu-items'
 
@@ -12,4 +14,8 @@ export default function SelectMaxMonthlyFee({ data, onChangeHandle }) {
       onChangeHandle={onChangeHandle}
     />
   )
+}
+SelectMaxMonthlyFee.propTypes = {
+  data: PropTypes.string,
+  onChangeHandle: PropTypes.func,
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import { makeStyles } from '@material-ui/core/styles'
 import FormControl from '@material-ui/core/FormControl'
@@ -15,15 +16,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SelectForm({
   label,
+  emptyState,
   menuItems,
   data,
   onChangeHandle,
-  emptyState,
 }) {
   const classes = useStyles()
 
   const handleChange = (event) => {
-    onChangeHandle(event.target.value)
+    onChangeHandle(String(event.target.value))
   }
 
   return (
@@ -47,4 +48,11 @@ export default function SelectForm({
       </Select>
     </FormControl>
   )
+}
+SelectForm.propTypes = {
+  label: PropTypes.string,
+  emptyState: PropTypes.string,
+  menuItems: PropTypes.arrayOf(PropTypes.object),
+  data: PropTypes.string,
+  onChangeHandle: PropTypes.func,
 }

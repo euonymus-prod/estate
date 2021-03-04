@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import SelectMinMonthlyFee from '../atoms/SelectMinMonthlyFee'
 import SelectMaxMonthlyFee from '../atoms/SelectMaxMonthlyFee'
@@ -36,4 +37,10 @@ export default function SelectMonthlyFeeRange({
       )}
     </React.Fragment>
   )
+}
+SelectMonthlyFeeRange.propTypes = {
+  minData: PropTypes.string,
+  onMinChangeHandle: PropTypes.func,
+  maxData: PropTypes.string,
+  onMaxChangeHandle: PropTypes.func,
 }
